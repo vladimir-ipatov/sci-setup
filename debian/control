@@ -1,0 +1,15 @@
+Source: sci-setup
+Section: admin
+Priority: extra
+Maintainer: Vladimir Ipatov <vs@ipatov.net>
+Uploaders: Vladimir Ipatov <vs@ipatov.net>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.9.3
+Homepage: https://github.com/vladimir-ipatov/sci-setup/
+Vcs-Browser: https://github.com/vladimir-ipatov/sci-setup.git
+
+Package: sci-setup
+Architecture: all
+Depends: ${misc:Depends}
+Description: Package deploys Skycover Infrastructure node on preinstalled systems
+ Install required packages, tuning system, install deployment scripts.

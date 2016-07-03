@@ -1,0 +1,8 @@
+sbin/* usr/local/sbin
+nut/* usr/local/tmp/nut
+ganeti/* usr/local/tmp/ganeti
+default/* usr/local/tmp/default
+apt/* /root
+base.repo usr/local/tmp
+xend-config.sxp usr/local/tmp
+drbd-sync-rate etc/init.d/

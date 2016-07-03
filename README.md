@@ -1,4 +1,4 @@
-sci-hosting
+sci-setup
 ===========
 
-sci tuning for preinstalled nodes
+Debian package for deploying SkyCover Infrastructure node on preinstalled debian systems
