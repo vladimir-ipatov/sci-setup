@@ -2,7 +2,7 @@
 
 #vars
 tempdir=/usr/local/tmp
-VERSION=2.3
+VERSION=2.4
 lockfile=$tempdir/lock
 
 if [ -f $lockfile ]; then
@@ -110,9 +110,6 @@ mkdir -p $target/etc/usbmount
 ## Set localized console and keyboard
 cp $tempdir/default/* $target/etc/default/
 
-## Set yum repos for CentOS 7
-cp $tempdir/base.repo $target/etc/yum/repos.d/
-
 ## checkout git repo for sci-puppet and disable local sources
 mkdir -p $target/usr/local/simple-cdd/SCI-amd64.files/files/root
 cd $target/usr/local/simple-cdd/SCI-amd64.files/files/root
@@ -209,10 +206,9 @@ options bnx2x disable_tpa=1
 options usbcore autosuspend=-1
 EOF
 
-## Set up symlinks /boot/vmlinuz-3-xenU, /boot/initrd-3-xenU
-# we'll assume only one xen kernel at the moment of the installation
-ln -s $target/boot/vmlinuz-*-amd64 $target/boot/vmlinuz-3-xenU
-ln -s $target/boot/initrd.img-*-amd64 $target/boot/initrd.img-3-xenU
+## Set up symlinks /boot/vmlinuz-xenU, /boot/initrd-xenU
+ln -s `ls $target/boot/vmlinuz-*-amd64|sed -Ee 's/^(.*-)([0-9.]+)(\.ime)$/\2.-1 \1\2\3/'| sort -t. -n -k1,1 -k2,2 -k3,3 -k4,4|tail -n 1` $target/boot/vmlinuz-xenU
+ln -s `ls $target/boot/initrd.img-*-amd64|sed -Ee 's/^(.*-)([0-9.]+)(\.ime)$/\2.-1 \1\2\3/'| sort -t. -n -k1,1 -k2,2 -k3,3 -k4,4|tail -n 1` $target/boot/initrd.img-xenU
 
 ## Set up symlink /usr/lib/xen for quemu-dm (workaround)
 ln -s $target/usr/lib/xen-4.1 $target/usr/lib/xen

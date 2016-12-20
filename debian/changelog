@@ -1,3 +1,17 @@
+sci-setup (2.4-1) unstable; urgency=low
+
+  * add seconds to nut emails
+  * fix /boot/vmlinuz-xenU symlink creation
+  * delete yem repos config from sci-setup package
+
+ -- Vladimir Ipatov <vs@ipatov.net>  Wed, 20 Dec 2016 19:13:24 +0300
+
+sci-setup (2.3-2) unstable; urgency=low
+
+  * delete base.repo for yum from package
+
+ -- Vladimir Ipatov <vs@ipatov.net>  Wed, 25 Oct 2016 19:13:24 +0300
+
 sci-setup (2.3-1) unstable; urgency=low
 
   * first version for sci 2.3
